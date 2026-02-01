@@ -79,12 +79,6 @@
 
   function vote(candidate) {
 
-    // check if already voted.
-    if (localStorage.getItem("hasVoted")) {
-      alert("You have already voted!");
-      return;
-    }
-
     // add vote.
     votes[candidate]++;
 
@@ -92,9 +86,6 @@
     document.getElementById("a").innerText = votes.A;
     document.getElementById("b").innerText = votes.B;
     document.getElementById("c").innerText = votes.C;
-
-    // store if already voted.
-    localStorage.setItem("hasVoted", "true");
 
     alert("Thank you for voting!");
   }
