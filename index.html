@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Voting System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 320px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .a { background: #4CAF50; color: white; }
+    .b { background: #2196F3; color: white; }
+    .c { background: #FF9800; color: white; }
+
+    .results {
+      margin-top: 15px;
+      font-size: 15px;
+    }
+
+    .results p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Vote Your Favorite</h2>
+
+    <button class="a" onclick="vote('A')">Candidate A</button>
+    <button class="b" onclick="vote('B')">Candidate B</button>
+    <button class="c" onclick="vote('C')">Candidate C</button>
+
+    <div class="results">
+      <h3>Results</h3>
+      <p>Candidate A: <span id="a">0</span></p>
+      <p>Candidate B: <span id="b">0</span></p>
+      <p>Candidate C: <span id="c">0</span></p>
+    </div>
+  </div>
+
+  <script>
+      window.alert('developed by Ilham & Karim')
+      
+  let votes = {
+    A: 0,
+    B: 0,
+    C: 0
+  };
+
+  function vote(candidate) {
+
+    // check if already voted.
+    if (localStorage.getItem("hasVoted")) {
+      alert("You have already voted!");
+      return;
+    }
+
+    // add vote.
+    votes[candidate]++;
+
+    // update results
+    document.getElementById("a").innerText = votes.A;
+    document.getElementById("b").innerText = votes.B;
+    document.getElementById("c").innerText = votes.C;
+
+    // store if already voted.
+    localStorage.setItem("hasVoted", "true");
+
+    alert("Thank you for voting!");
+  }
+</script>
+
+</body>
+</html>
